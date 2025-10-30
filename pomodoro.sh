@@ -24,20 +24,13 @@ function do_timer {
 
 function notif {
     message=$1
-    sound=$2
-    printf "$message"
     notify-send "$message"
-    paplay "$sound"
+    paplay /usr/share/sounds/freedesktop/stereo/complete.oga
+
 
 }
 
-
-PING_SOUND=~/default_ping.wav
-if [ ! -f "$PING_SOUND" ]; then
-    curl -L -o "$PING_SOUND" 'https://raw.githubusercontent.com/srsxnsh/pomodoro/main/sounds/default_ping.wav'
-fi
-
-
+clear
 
 workmins=$(get_pos_int 'Enter work time:')
 breakmins=$(get_pos_int 'Enter break time:')
@@ -45,11 +38,32 @@ breakmins=$(get_pos_int 'Enter break time:')
 workseconds=$((workmins * 60))
 breakseconds=$((breakmins * 60))
 
+clear
+
 while true; do
+    echo -e "\033[1;34m    __        _____  ____  _  __\033[0m"
+    echo -e "\033[1;34m    \\ \\      / / _ \\|  _ \\| |/ /\033[0m"
+    echo -e "\033[1;34m     \\ \\ /\\ / / | | | |_) | ' /\033[0m"
+    echo -e "\033[1;34m      \\ V  V /| |_| |  _ <| . \\ \033[0m"
+    echo -e "\033[1;34m       \\_/\\_/  \\___/|_| \\_\\_|\\_\\ \033[0m"
+    echo
+
+
+notif 'Work time!'
+
     do_timer workseconds
-    notif 'Break time!' PING_SOUND
+    clear
+    echo -e "\033[1;34m     ____  ____  _____    _    _  __\033[0m"
+    echo -e "\033[1;34m    | __ )|  _ \| ____|  / \  | |/ /\033[0m"
+    echo -e "\033[1;34m    |  _ \| |_) |  _|   / _ \ | ' /\033[0m"
+    echo -e "\033[1;34m    | |_) |  _ <| |___ / ___ \| . \\ \033[0m"
+    echo -e "\033[1;34m    |____/|_| \_\_____/_/   \_\_|\_\\ \033[0m"
+    echo
+
+    notif 'Break time!'
     do_timer breakseconds
-    notif 'Work time!' PING_SOUND
+    clear
+    
 done
 
 

@@ -18,6 +18,6 @@ Simple pomodoro timer that runs in the terminal
 
 Run the installer:
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/srsxnsh/pomodoro/main/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/srsxnsh/pomodoro/main/installer.sh)"
 
 ```

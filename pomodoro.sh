@@ -27,14 +27,14 @@ function notif {
     sound=$2
     printf "$message"
     notify-send "$message"
-    paplay "sound"
+    paplay "$sound"
 
 }
 
 
-PING_SOUND=~/ping.wav
+PING_SOUND=~/default_ping.wav
 if [ ! -f "$PING_SOUND" ]; then
-    curl -L -o "$PING_SOUND" #uhhhh get a sound ig lmao
+    curl -L -o "$PING_SOUND" 'https://github.com/srsxnsh/pomodoro/blob/main/sounds/default_ping.mp3'
 fi
 
 

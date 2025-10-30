@@ -34,7 +34,7 @@ function notif {
 
 PING_SOUND=~/default_ping.wav
 if [ ! -f "$PING_SOUND" ]; then
-    curl -L -o "$PING_SOUND" 'https://github.com/srsxnsh/pomodoro/blob/main/sounds/default_ping.mp3'
+    curl -L -o "$PING_SOUND" 'https://raw.githubusercontent.com/srsxnsh/pomodoro/main/sounds/default_ping.wav'
 fi
 
 
